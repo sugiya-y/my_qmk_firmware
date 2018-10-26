@@ -1,4 +1,4 @@
-/* Copyright 2015-2017 Christon DeWan
+p /* Copyright 2015-2017 Christon DeWan
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,17 +20,16 @@
 
 #include "xtonhasvim.h"
 
-
 extern uint8_t user_rgb_mode;
 extern LED_TYPE shadowed_led[];
 
-
-#endif //RGBLIGHT_ENABLE
 void start_firey_return(void);
+
+#endif //_fancy_lighting_h
 
 enum xtonhasvim_rgbmodes {
   BREATH_FIRE = 1,
   FADE_BACK
 };
 
-#endif //_fancy_lighting_h
+#endif //RGBLIGHT_ENABLE

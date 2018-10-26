@@ -119,8 +119,8 @@ If you define these options you will enable the associated feature, which may in
 
 * `#define FORCE_NKRO`
   * NKRO by default requires to be turned on, this forces it on during keyboard startup regardless of EEPROM setting. NKRO can still be turned off but will be turned on again if the keyboard reboots.
-* `#define STRICT_LAYER_RELEASE`
-  * force a key release to be evaluated using the current layer stack instead of remembering which layer it came from (used for advanced cases)
+* `#define PREVENT_STUCK_MODIFIERS`
+  * stores the layer a key press came from so the same layer is used when the key is released, regardless of which layers are enabled
 
 ## Behaviors That Can Be Configured
 
@@ -155,10 +155,6 @@ If you define these options you will enable the associated feature, which may in
     going to produce the 500 keystrokes a second needed to actually get more than a
     few ms of delay from this. But if you're doing chording on something with 3-4ms
     scan times? You probably want this.
-* `#define COMBO_COUNT 2`
-  * Set this to the number of combos that you're using in the [Combo](feature_combo.md) feature.
-* `#define COMBO_TERM 200`
-  * how long for the Combo keys to be detected. Defaults to `TAPPING_TERM` if not defined.
 
 ## RGB Light Configuration
 
@@ -238,8 +234,6 @@ Use these to enable or disable building certain features. The more you have enab
   * Console for debug(+400)
 * `COMMAND_ENABLE`
   * Commands for debug and configuration
-* `COMBO_ENABLE`
-  * Key combo feature
 * `NKRO_ENABLE`
   * USB N-Key Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
 * `AUDIO_ENABLE`
@@ -251,12 +245,6 @@ Use these to enable or disable building certain features. The more you have enab
 * `UNICODE_ENABLE`
   * Unicode
 * `BLUETOOTH_ENABLE`
-  * Legacy option to Enable Bluetooth with the Adafruit EZ-Key HID. See BLUETOOTH
-* `BLUETOOTH`
-  * Current options are AdafruitEzKey, AdafruitBLE, RN42
+  * Enable Bluetooth with the Adafruit EZ-Key HID
 * `SPLIT_KEYBOARD`
   * Enables split keyboard support (dual MCU like the let's split and bakingpy's boards) and includes all necessary files located at quantum/split_common
-* `WAIT_FOR_USB`
-  * Forces the keyboard to wait for a USB connection to be established before it starts up
-* `NO_USB_STARTUP_CHECK`
-  * Disables usb suspend check after keyboard startup. Usually the keyboard waits for the host to wake it up before any tasks are performed. This is useful for split keyboards as one half will not get a wakeup call but must send commands to the master.

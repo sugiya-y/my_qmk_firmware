@@ -5,6 +5,7 @@
 #ifdef BACKLIGHT_ENABLE
   #include "backlight.h"
 #endif
+#define PREVENT_STUCK_MODIFIERS
 extern keymap_config_t keymap_config;
 
 // Symbolic names for macro IDs.

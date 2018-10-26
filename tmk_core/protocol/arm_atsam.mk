@@ -10,6 +10,7 @@ SRC += $(ARM_ATSAM_DIR)/spi.c
 SRC += $(ARM_ATSAM_DIR)/startup.c
 
 SRC += $(ARM_ATSAM_DIR)/usb/main_usb.c
+SRC += $(ARM_ATSAM_DIR)/usb/spfssf.c
 SRC += $(ARM_ATSAM_DIR)/usb/udc.c
 SRC += $(ARM_ATSAM_DIR)/usb/udi_cdc.c
 SRC += $(ARM_ATSAM_DIR)/usb/udi_hid.c

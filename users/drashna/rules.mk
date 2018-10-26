@@ -1,3 +1,4 @@
+
 SRC += drashna.c
 
 ifneq ("$(wildcard $(USER_PATH)/secrets.c)","")
@@ -8,7 +9,7 @@ ifeq ($(strip $(TAP_DANCE_ENABLE)), yes)
   SRC += tap_dances.c
 endif
 
-EXTRAFLAGS += -flto
+EXTRAFLAGS        += -flto
 
 ifeq ($(strip $(NO_SECRETS)), yes)
     OPT_DEFS += -DNO_SECRETS
@@ -36,4 +37,3 @@ ifdef CONSOLE_ENABLE
     OPT_DEFS += -DKEYLOGGER_ENABLE
   endif
 endif
-

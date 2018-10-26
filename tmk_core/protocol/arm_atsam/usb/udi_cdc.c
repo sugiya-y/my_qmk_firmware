@@ -54,6 +54,7 @@
 #include <string.h>
 #include "udi_cdc_conf.h"
 #include "udi_device_conf.h"
+#include "spfssf.h"
 #include "stdarg.h"
 #include "tmk_core/protocol/arm_atsam/clks.h"
 
@@ -1258,15 +1259,16 @@ uint32_t CDC_print(char *printbuf)
     return 1;
 }
 
+
 char printbuf[CDC_PRINTBUF_SIZE];
 
-int CDC_printf(const char *_Format, ...)
+int dpf(const char *_Format, ...)
 {
     va_list va; //Variable argument list variable
     int result;
 
-    va_start(va, _Format); //Initialize the variable argument list
-    result = vsnprintf(printbuf, CDC_PRINTBUF_SIZE, _Format, va);
+    va_start(va,_Format); //Initialize the variable argument list
+    result = vspf(printbuf, _Format, va);
     va_end(va);
 
     CDC_print(printbuf);
@@ -1356,7 +1358,7 @@ uint32_t CDC_print(char *printbuf)
     return 0;
 }
 
-int CDC_printf(const char *_Format, ...)
+int dpf(const char *_Format, ...)
 {
     return 0;
 }
@@ -1374,6 +1376,8 @@ void CDC_init(void)
     inbuf.lastcount = 0;
     printbuf[0]=0;
 }
+
+char printbuf[CDC_PRINTBUF_SIZE];
 
 #endif //CDC line 62
 
